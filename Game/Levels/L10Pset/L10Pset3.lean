@@ -14,7 +14,7 @@ Finish the proof of `ProdLim`.
 /--
 If sequences `a b : ℕ → ℝ` converge with `a` going to `L` and `b` going to `M`, then `a n * b n` converges to `L * M`.
 -/
-TheoremDoc ProdLim as "ProdLim" in "Sequences"
+TheoremDoc ProdLim as "ProdLim" in "aₙ"
 
 /-- Prove this
 -/

@@ -68,7 +68,7 @@ Prove that the Basel series converges by:
    - The partial sums are **monotone** (adding positive terms)
 
 **Hints:**
-- Use `LeibnizSeries'` to get the formula for the Leibniz partial sums
+- Use `LeibnizSeriesFinite` to get the formula for the Leibniz partial sums
 - Use `SeriesOrderThm` to compare Basel with Leibniz
 - Use `Monotone_of_succ` to prove monotonicity
 - The inequality `(k+2)² ≥ (k+1)(k+2)` can be handled with `field_simp` and `bound`
@@ -84,12 +84,12 @@ theorem SeqConv_of_IsCauchy {a : ℕ → ℝ} (ha : IsCauchy a) : SeqConv a := b
 /--
 If a sequence `a : ℕ → ℝ` is Cauchy, then it converges.
 -/
-TheoremDoc SeqConv_of_IsCauchy as "SeqConv_of_IsCauchy" in "Sequences"
+TheoremDoc SeqConv_of_IsCauchy as "SeqConv_of_IsCauchy" in "aₙ"
 
 
 /-- If `a : ℕ → ℝ` is Monotone and bounded, then `SeqConv a`.
 -/
-TheoremDoc SeqConv_of_MonotoneBdd as "SeqConv_of_MonotoneBdd" in "Sequences"
+TheoremDoc SeqConv_of_MonotoneBdd as "SeqConv_of_MonotoneBdd" in "aₙ"
 
 theorem SeqConv_of_MonotoneBdd (a : ℕ → ℝ) (M : ℝ) (hM : ∀ n, a n ≤ M) (ha : Monotone a) :
   SeqConv a := by
@@ -107,7 +107,7 @@ have hab : ∀ n, a n ≤ b n := by
   field_simp
   bound
 intro n
-have bLeib := LeibnizSeries' hb n
+have bLeib := LeibnizSeriesFinite hb n
 have habBnd := SeriesOrderThm hab n
 change Series b n = 1 - 1 / (n + 1) at bLeib
 have h1 : (1 : ℝ) - 1 / (n + 1) ≤ 1 := by

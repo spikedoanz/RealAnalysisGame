@@ -57,17 +57,17 @@ apply hσ.injOn
 For a sequence `a : ℕ → ℝ` and an injective `σ : ℕ → ℕ`, we have that:
 `Series (a ∘ σ) n = ∑ k ∈ image σ (range n), a k` holds for any `n`.
 -/
-TheoremDoc Series_image as "Series_image" in "Series"
+TheoremDoc Series_image as "Series_image" in "∑aₙ"
 
 /--
 If `s₁ ⊆ s₂`, then `∑ x ∈ s₂ \ s₁, f x + ∑ x ∈ s₁, f x = ∑ x ∈ s₂, f x`.
 -/
-TheoremDoc Finset.sum_sdiff as "sum_sdiff" in "Series"
+TheoremDoc Finset.sum_sdiff as "sum_sdiff" in "∑aₙ"
 
 /--
 `|∑ x ∈ s, f x ≤ ∑ x ∈ s, |f x|`. (More general version of `Series_abs_add`)
 -/
-TheoremDoc Finset.abs_sum_le_sum_abs as "abs_sum_le_sum_abs" in "Theorems"
+TheoremDoc Finset.abs_sum_le_sum_abs as "abs_sum_le_sum_abs" in "∑aₙ"
 
 
 NewTheorem Finset.sum_sdiff Finset.abs_sum_le_sum_abs Series_image
@@ -75,7 +75,7 @@ NewTheorem Finset.sum_sdiff Finset.abs_sum_le_sum_abs Series_image
 /--
   If `Series a` converges absolutely, then any rearrangement of `a` also converges, and to the same sum.
 -/
-TheoremDoc RearrangementThm as "RearrangementThm" in "Series"
+TheoremDoc RearrangementThm as "RearrangementThm" in "∑aₙ"
 
 Statement RearrangementThm {a : ℕ → ℝ} (ha : AbsSeriesConv a) :
   ∃ L, ∀ (σ : ℕ → ℕ) (_ : Rearrangement σ), SeriesLim (a ∘ σ) L := by

@@ -15,7 +15,7 @@ Introduction "
 /-- For any real `x` and natural number `n`,
 `(1-x)*(1+...+x^(n-1)) = 1- x^n`.
 -/
-TheoremDoc FiniteGeomSeries as "FiniteGeomSeries" in "Series"
+TheoremDoc FiniteGeomSeries as "FiniteGeomSeries" in "∑aₙ"
 
 /-- Prove this
 -/

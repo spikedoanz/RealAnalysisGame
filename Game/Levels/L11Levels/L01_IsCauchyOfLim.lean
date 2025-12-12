@@ -43,7 +43,7 @@ This is your first Big Boss level working with the Cauchy definition. Take your 
 /--
 Usage: `have factName : |x - y| = |y - x| := by apply abs_sub_comm`
 -/
-TheoremDoc abs_sub_comm as "abs_sub_comm" in "Theorems"
+TheoremDoc abs_sub_comm as "abs_sub_comm" in "|x|"
 
 NewTheorem abs_sub_comm
 
@@ -60,7 +60,7 @@ def IsCauchy {X : Type*} [NormedAddGroup X] [Lattice X] (a : ℕ → X) : Prop :
 /--
 If a sequence `a : ℕ → ℝ` converges, then it is Cauchy.
 -/
-TheoremDoc IsCauchy_of_SeqConv as "IsCauchy_of_SeqConv" in "Sequences"
+TheoremDoc IsCauchy_of_SeqConv as "IsCauchy_of_SeqConv" in "aₙ"
 
 /-- Prove this
 -/

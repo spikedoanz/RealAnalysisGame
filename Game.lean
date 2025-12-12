@@ -130,17 +130,14 @@ Dependency L24Pset → Lecture25
 Dependency Lecture24 → Lecture25
 
 -- Here's what we'll put on the title screen
-Title "An Introduction to (Formal) Real Analysis"
+Title "Real Analysis, The Game"
 
 Introduction "
-# Welcome to Real Analysis, The Game!
+# Welcome to Real Analysis, The Game! (v0.1)
 
-This course is currently being developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk).
- Please email alex.kontorovich@rutgers.edu for suggestions/corrections,
-or better yet, post a PR/issue to
-https://github.com/AlexKontorovich/RealAnalysisGame.
+This course is was developed for Rutgers University Math 311H by [Alex Kontorovich](https://math.rutgers.edu/~alexk).
 
-For the main course website, go to: https://alexkontorovich.github.io/2025F311H.
+Follow along with the course lecture notes and videos, available here: https://alexkontorovich.github.io/2025F311H.
 
 This course takes you through an Introduction to the Real Numbers, rigorous `ε`-`δ` Calculus,
 and basic Point-Set Topology.
@@ -150,7 +147,7 @@ To get started, click on
 "
 
 Info "
-*An Introduction to Formal Real Analysis - Interactive Edition*
+*Real Analysis, The Game*
 
 ## About this Course
 
@@ -168,7 +165,7 @@ like `ε`-`δ` definitions became necessary and how to use them to do advanced c
 
 /-! Information to be displayed on the servers landing page. -/
 Languages "en"
-CaptionShort "A First Course in Real Analysis"
+CaptionShort "Real Analysis, The Game"
 CaptionLong "Learn real analysis through the historical crises that forced mathematicians to rebuild calculus from the ground up in the 19th century."
 
 set_option lean4game.showDependencyReasons true

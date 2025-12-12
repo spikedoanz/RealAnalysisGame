@@ -22,7 +22,7 @@ theorem sum_Ico_succ {M : Type*} [AddCommMonoid M] {a b : ℕ} (hab : a ≤ b) (
 apply sum_Ico_succ_top hab
 
 /-- This is the analog of `sum_range_succ` to summing on intervals. -/
-TheoremDoc sum_Ico_succ as "sum_Ico_succ" in "Theorems"
+TheoremDoc sum_Ico_succ as "sum_Ico_succ" in "∑aₙ"
 
 NewTheorem sum_Ico_succ
 

@@ -103,7 +103,7 @@ NewDefinition UnifConv
 /--
 If a sequence of functions `fₙ` converges uniformly to `F`, and each `fₙ` is continuous, then `F` is continuous.
 -/
-TheoremDoc Cont_of_UnifConv as "Cont_of_UnifConv" in "Functions"
+TheoremDoc Cont_of_UnifConv as "Cont_of_UnifConv" in "f(x)"
 
 Statement Cont_of_UnifConv  (f : ℕ → ℝ → ℝ) (hf : ∀ n, FunCont (f n))
     (F : ℝ → ℝ) (hfF : UnifConv f F) : FunCont F:= by

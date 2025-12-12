@@ -110,12 +110,12 @@ The proof is elegant, almost anticlimactic. That's how you know you've done math
 
 /-- `|x| ≤ y ↔ -y ≤ x ≤ y`
 -/
-TheoremDoc abs_le as "abs_le" in "Theorems"
+TheoremDoc abs_le as "abs_le" in "|x|"
 
 /--
 If a sequence `a : ℕ → X` (where `X` can be `ℚ` or `ℝ`) is antitone and bounded, then it is Cauchy.
 -/
-TheoremDoc IsCauchy_of_AntitoneBdd as "IsCauchy_of_AntitoneBdd" in "Sequences"
+TheoremDoc IsCauchy_of_AntitoneBdd as "IsCauchy_of_AntitoneBdd" in "aₙ"
 
 Statement IsCauchy_of_AntitoneBdd {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X]
     [FloorSemiring X] {a : ℕ → X} {M : X} (ha : Antitone a) (hM : ∀ n, M ≤ a n)
@@ -132,7 +132,7 @@ apply negbCauchy
 /--
 If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) has unbounded peaks, then it has an `Antitone` subsequence.
 -/
-TheoremDoc AntitoneSubseq_of_UnBddPeaks as "AntitoneSubseq_of_UnBddPeaks" in "Sequences"
+TheoremDoc AntitoneSubseq_of_UnBddPeaks as "AntitoneSubseq_of_UnBddPeaks" in "aₙ"
 
 theorem AntitoneSubseq_of_UnBddPeaks
 {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] [FloorSemiring X] (a : ℕ → X) (ha : UnBddPeaks a) : ∃ σ, Subseq σ ∧ Antitone (a ∘ σ) := by
@@ -158,7 +158,7 @@ NewTheorem AntitoneSubseq_of_UnBddPeaks IsCauchy_of_AntitoneBdd abs_le
 /--
 If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is bounded, then it has a subsequence which is Cauchy.
 -/
-TheoremDoc BolzanoWeierstrass as "BolzanoWeierstrass" in "Sequences"
+TheoremDoc BolzanoWeierstrass as "BolzanoWeierstrass" in "aₙ"
 
 /-- Prove this
 -/

@@ -1,4 +1,5 @@
-import Game.Levels.L24Pset.L05
+import Game.Levels.L24Pset.L01
+import Game.Levels.L24Pset.L02
 
 World "L24Pset"
 Title "Pset 24"

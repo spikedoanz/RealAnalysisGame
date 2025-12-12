@@ -36,7 +36,7 @@ namespace RealAnalysisGame
 /--
 If `fₙ` converges uniformly to `F`, and each `fₙ` is integrable on `[a, b]`, then `F` is integrable on `[a, b]`, and the integral of `F` equals the limit of the integrals of `fₙ`.
 -/
-TheoremDoc RealAnalysisGame.Integrable_of_UnifConv as "Integrable_of_UnifConv" in "Functions"
+TheoremDoc RealAnalysisGame.Integrable_of_UnifConv as "Integrable_of_UnifConv" in "∫f"
 
 Statement Integrable_of_UnifConv {f : ℕ → ℝ → ℝ} {F : ℝ → ℝ}
     {a b : ℝ} (hab : a < b)

@@ -13,7 +13,7 @@ Introduction "
 
 /-- The partial sums of the series `∑ k, c * a k` is equal to that of `c * ∑ k, a k`.
 -/
-TheoremDoc SeriesConstMul as "SeriesConstMul" in "Series"
+TheoremDoc SeriesConstMul as "SeriesConstMul" in "∑aₙ"
 
 /-- Prove this
 -/

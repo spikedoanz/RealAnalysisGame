@@ -12,11 +12,8 @@ Prove that `N * (N + 1)` is always even.
 
 "
 
-/-- `N * (N + 1)` is always even. -/
-TheoremDoc NNplus1Even as "NNplus1Even" in "Temporary"
-
 /-- Prove the statement. -/
-Statement NNplus1Even (N : ℕ) :
+Statement (N : ℕ) :
     ∃ k : ℕ, N * (N + 1) = 2 * k := by
 induction' N with N hN
 use 0

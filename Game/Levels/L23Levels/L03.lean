@@ -56,7 +56,7 @@ theorem mem_Union {α : Type*} {ι : Sort*} {x : α} {s : ι → Set α} : (x �
 /--
 An element `x` is in the union of sets `s i` if and only if there exists an index `i` such that `x` is in `s i`.
 -/
-TheoremDoc RealAnalysisGame.mem_Union as "mem_Union" in "Theorems"
+TheoremDoc RealAnalysisGame.mem_Union as "mem_Union" in "x∈U"
 
 lemma FinMinPos (ι : Type) (V : Finset ι) (δs : ι → ℝ) (hδs : ∀ i, δs i > 0) :
     ∃ δ > 0, ∀ i ∈ V, δ ≤ δs i := by
@@ -77,8 +77,8 @@ TheoremDoc RealAnalysisGame.FinMinPos as "FinMinPos" in "Theorems"
 NewTheorem RealAnalysisGame.FinMinPos RealAnalysisGame.mem_Union
 
 def IsCompact (S : Set ℝ) : Prop :=
-  ∀ (ι : Type) (xs : ι → ℝ) (δs : ι → ℝ), (∀ i, 0 < δs i) → (S ⊆ ⋃ i, Ball (xs i) (δs i)) →
-    ∃ (V : Finset ι), S ⊆ ⋃ i ∈ V, Ball (xs i) (δs i)
+  ∀ (ι : Type) (xs : ι → ℝ) (rs : ι → ℝ), (∀ i, 0 < rs i) → (S ⊆ ⋃ i, Ball (xs i) (rs i)) →
+    ∃ (V : Finset ι), S ⊆ ⋃ i ∈ V, Ball (xs i) (rs i)
 
 /-- `IsCompact (S : Set ℝ) : Prop :=
   ∀ (ι : Type) (xs : ι → ℝ) (δs : ι → ℝ), (∀ i, 0 < δs i) → (S ⊆ ⋃ i, Ball (xs i) (δs i)) →
@@ -98,7 +98,7 @@ NewDefinition IsCompact Ball  «Type»
 /--
 A continuous function on a compact set is uniformly continuous on that set.
 -/
-TheoremDoc RealAnalysisGame.UnifContOn_of_Compact as "UnifContOn_of_Compact" in "Topology"
+TheoremDoc RealAnalysisGame.UnifContOn_of_Compact as "UnifContOn_of_Compact" in "f(x)"
 
 Statement UnifContOn_of_Compact (f : ℝ → ℝ) (hf : FunCont f) (S : Set ℝ) (hS : IsCompact S) : UnifContOn f S := by
 intro ε hε

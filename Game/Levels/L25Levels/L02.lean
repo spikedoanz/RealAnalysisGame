@@ -29,7 +29,7 @@ namespace RealAnalysisGame
 /--
 The Intermediate Value Theorem (IVT) states that if a function is continuous on a closed interval `[a, b]` and takes values `f(a) < 0` and `0 < f(b)`, then there exists `c ∈ (a, b)` so that `f(c)=0`.
 -/
-TheoremDoc RealAnalysisGame.IVT as "IVT" in "Functions"
+TheoremDoc RealAnalysisGame.IVT as "IVT" in "f(x)"
 
 Statement IVT {f : ℝ → ℝ} (hf : FunCont f) {a b : ℝ} (hab : a < b)
     (hfa : f a < 0) (hfb : 0 < f b): ∃ c ∈ Ioo a b, f c = 0 := by

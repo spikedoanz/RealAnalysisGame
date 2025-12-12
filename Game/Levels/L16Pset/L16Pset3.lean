@@ -13,7 +13,7 @@ Introduction "
 
 /-- The partial sums of the series `∑ k, a k + b k` is equal to that of `∑ k, a k + ∑ k, b k`.
 -/
-TheoremDoc SeriesAdd as "SeriesAdd" in "Series"
+TheoremDoc SeriesAdd as "SeriesAdd" in "∑aₙ"
 
 /-- Prove this
 -/

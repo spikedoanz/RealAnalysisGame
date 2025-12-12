@@ -18,7 +18,7 @@ theorem Antitone_of_succ {X : Type*} [Preorder X] (a : ℕ → X) (ha : ∀ n, a
 exact antitone_nat_of_succ_le ha
 
 /-- If `a (n+1) ≤ a n` holds for all `n`, then `a` is `Antitone`. -/
-TheoremDoc Antitone_of_succ as "Antitone_of_succ" in "Sequences"
+TheoremDoc Antitone_of_succ as "Antitone_of_succ" in "aₙ"
 
 NewTheorem Antitone_of_succ
 

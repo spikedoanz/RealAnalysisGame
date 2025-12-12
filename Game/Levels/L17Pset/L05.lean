@@ -14,7 +14,7 @@ If `0 ≤ a n`, then `Series a` is Monotone.
 "
 /-- If `a : ℕ → ℝ` is nonnegative, then `Series a` is `Monotone`.
 -/
-TheoremDoc Monotone_of_NonNegSeries as "Monotone_of_NonNegSeries" in "Series"
+TheoremDoc Monotone_of_NonNegSeries as "Monotone_of_NonNegSeries" in "∑aₙ"
 
 Statement Monotone_of_NonNegSeries {a : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n) : Monotone (Series a) := by
 apply Monotone_of_succ

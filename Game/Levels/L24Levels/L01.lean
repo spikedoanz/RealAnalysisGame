@@ -54,7 +54,7 @@ NewTheorem RealAnalysisGame.FinMax
 /--
 A compact set is bounded.
 -/
-TheoremDoc RealAnalysisGame.Bdd_of_Compact as "Bdd_of_Compact" in "Topology"
+TheoremDoc RealAnalysisGame.Bdd_of_Compact as "Bdd_of_Compact" in "x∈U"
 
 Statement Bdd_of_Compact (S : Set ℝ) (hcomp : IsCompact S) : ∃ M, ∀ s ∈ S, |s| < M := by
 let ι := ℕ

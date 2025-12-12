@@ -109,10 +109,7 @@ in calculus?
 **SIMPLICIO:** Sure, if you have a continuous function, and it goes from being negative to being positive,
 then it has to cross zero at some point in between.
 
-**SOCRATES:** Very good. Tell me about the function $f : x \\mapsto x^2 - 2$. (We say: \"$f$ maps
-$x$ to $x^2-2$\". Note that we write $f : \\R \\to \\R$ to mean that $f$ takes real numbers to real numbers, but
-replace $\\to$ with $\\mapsto$ (see the tail on the second arrow?) when we want to say what happens to a particular input $x$ under the action of
-$f$. Let me remind you that $x$ here is a dummy variable, so it's the same function if we'd said $f : u \\mapsto u ^ 2 - 2$.) In particular, what happens to $f$ on the rational numbers?
+**SOCRATES:** Very good. Tell me about the function $f(x) = x^2 - 2$. In particular, what happens to $f$ on the rational numbers?
 
 **SIMPLICIO:** Ok, well if $x$ is a rational number, then so is $x^2$, and hence so is $x^2-2$.
 So actually, we could say that $f : \\mathbb Q \\to \\mathbb Q$, that is, $f$ maps rational numbers to rational numbers.
@@ -133,8 +130,9 @@ that Hippasus was drowned at sea for his herecy.
 **SOCRATES:** So...
 
 **SIMPLICIO:** So wait, if we just restrict to rational inputs, then this parabola is negative, and then
-it's positive, and it *never* crosses zero?! But there's tons of rational numbers almost everywhere you look. So what makes the real numbers different from the
+it's positive, and it *never* hits zero?! But there's tons of rational numbers all over the place. So what makes the real numbers different from the
 rational numbers, so that the Intermediate Value Theorem actually holds?
 
 **SOCRATES:** Ah! Now, my friend, we are ready to begin.
+
 "

@@ -148,12 +148,12 @@ Classical.choose_spec (Conv_of_IsCauchy ha)
 
 /-- If a sequence `a : ℕ → ℚ` is Cauchy, then it converges (that is, `SeqLim` holds)
 to the real number defined in `Real_of_CauSeq`. -/
-TheoremDoc SeqLim_of_Real_of_Cau as "SeqLim_of_Real_of_Cau" in "Sequences"
+TheoremDoc SeqLim_of_Real_of_Cau as "SeqLim_of_Real_of_Cau" in "aₙ"
 
 NewTheorem SeqLim_of_Real_of_Cau
 
 /-- The real numbers are complete; Cauchy sequences in the reals converge to a real number. -/
-TheoremDoc Reals_are_Complete as "Reals_are_Complete" in "Sequences"
+TheoremDoc Reals_are_Complete as "Reals_are_Complete" in "aₙ"
 
 Statement Reals_are_Complete (q : ℕ → ℕ → ℚ) (x : ℕ → ℝ) (hq : ∀ n, IsCauchy (q n))
   (hx : ∀ n, x n = Real_of_CauSeq (hq n))

@@ -57,7 +57,7 @@ Prove the backward direction of the sequential criterion:
 /--
 If for every sequence `(xₙ)` converging to `c` with `xₙ ≠ c`, the sequence `f(xₙ)` converges to `L`, then the function `f` has limit `L` at point `c`.
 -/
-TheoremDoc FunLim_of_SeqLim as "FunLim_of_SeqLim" in "Functions"
+TheoremDoc FunLim_of_SeqLim as "FunLim_of_SeqLim" in "f(x)"
 
 Statement FunLim_of_SeqLim {f : ℝ → ℝ} {L c : ℝ}
     (h : ∀ x : ℕ → ℝ, (∀ n, x n ≠ c) → SeqLim x c → SeqLim (fun n ↦ f (x n)) L) :

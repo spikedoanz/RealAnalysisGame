@@ -52,7 +52,7 @@ Your task: Prove the `AlternatingSeriesTest` by showing both even and odd subseq
 /--
   If `a : ℕ → ℝ` is `Antitone` and converges to `L`, then for all `n`, `L ≤ a n`. Analogous to `MonotoneLimitBound`.
 -/
-TheoremDoc AntitoneLimitBound as "AntitoneLimitBound" in "Sequences"
+TheoremDoc AntitoneLimitBound as "AntitoneLimitBound" in "aₙ"
 
 -- ADD TO HOMEWORK
 theorem AntitoneLimitBound {a : ℕ → ℝ} (ha : Antitone a) {L : ℝ} (aLim : SeqLim a L) : ∀ n,
@@ -62,7 +62,7 @@ sorry
 /--
   If `a → L` and `b → M` and `a - b → 0`, then `L = M`.
 -/
-TheoremDoc CoherenceOfReals as "CoherenceOfReals" in "Sequences"
+TheoremDoc CoherenceOfReals as "CoherenceOfReals" in "aₙ"
 
 -- ADD TO HOMEWORK
 theorem CoherenceOfReals {a b : ℕ → ℝ} {L M : ℝ} (ha : SeqLim a L) (hb : SeqLim b M) (hab : SeqLim (fun n ↦ a n - b n) 0) : L = M := by sorry
@@ -70,7 +70,7 @@ theorem CoherenceOfReals {a b : ℕ → ℝ} {L M : ℝ} (ha : SeqLim a L) (hb :
 /--
   Given `a : ℕ → ℝ`, if `a (2 n) → L` and `a (2n+1) → L`, then `a → L`.
 -/
-TheoremDoc SeqEvenOdd as "SeqEvenOdd" in "Sequences"
+TheoremDoc SeqEvenOdd as "SeqEvenOdd" in "aₙ"
 
 -- ADD TO HOMEWORK
 theorem SeqEvenOdd {a : ℕ → ℝ} {L : ℝ} (ha2n : SeqLim (fun n ↦ a (2 * n)) L)
@@ -79,7 +79,7 @@ theorem SeqEvenOdd {a : ℕ → ℝ} {L : ℝ} (ha2n : SeqLim (fun n ↦ a (2 * 
 /--
   If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the even alternating series `n ↦ ∑ k ∈ range (2n), (-1)^k * a k` is `Monotone`.
 -/
-TheoremDoc MonotoneSeriesEven as "MonotoneSeriesEven" in "Series"
+TheoremDoc MonotoneSeriesEven as "MonotoneSeriesEven" in "∑aₙ"
 
 --ADD TO HOMEWORK
 theorem MonotoneSeriesEven {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a n) : Monotone (fun n ↦ ∑ k ∈ range (2 * n), (-1)^k * a k) := by sorry
@@ -87,7 +87,7 @@ theorem MonotoneSeriesEven {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 
 /--
   If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the odd alternating series `n ↦ ∑ k ∈ range (2n+1), (-1)^k * a k` is `Antitone`.
 -/
-TheoremDoc AntitoneSeriesOdd as "AntitoneSeriesOdd" in "Series"
+TheoremDoc AntitoneSeriesOdd as "AntitoneSeriesOdd" in "∑aₙ"
 
 --ADD TO HOMEWORK
 theorem AntitoneSeriesOdd {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a n) : Antitone (fun n ↦ ∑ k ∈ range (2 * n + 1), (-1)^k * a k) := by sorry
@@ -95,7 +95,7 @@ theorem AntitoneSeriesOdd {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 �
 /--
   If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the even alternating series `n ↦ ∑ k ∈ range (2n), (-1)^k * a k` is bounded by `a 0`.
 -/
-TheoremDoc BddSeriesEven as "BddSeriesEven" in "Series"
+TheoremDoc BddSeriesEven as "BddSeriesEven" in "∑aₙ"
 
 --ADD TO HOMEWORK
 theorem BddSeriesEven {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a n) (n : ℕ) : ∑ k ∈ range (2 * n), (-1)^k * a k ≤ a 0 := by sorry
@@ -103,7 +103,7 @@ theorem BddSeriesEven {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a
 /--
   If `a : ℕ → ℝ` is `Antitone` and `∀ n, 0 ≤ a n`, then the odd alternating series `n ↦ ∑ k ∈ range (2n+1), (-1)^k * a k` is bounded below by `0`.
 -/
-TheoremDoc BddSeriesOdd as "BddSeriesOdd" in "Series"
+TheoremDoc BddSeriesOdd as "BddSeriesOdd" in "∑aₙ"
 
 --ADD TO HOMEWORK
 theorem BddSeriesOdd {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a n) (n : ℕ) : 0 ≤ ∑ k ∈ range (2 * n + 1), (-1)^k * a k := by sorry
@@ -111,7 +111,7 @@ theorem BddSeriesOdd {a : ℕ → ℝ} (ha : Antitone a) (apos : ∀ n, 0 ≤ a 
 /--
   If `a → 0`, then the difference of odd and even alternating series, `n ↦ ∑ k ∈ range (2n+1), (-1)^k * a k - ∑ k ∈ range (2n), (-1)^k * a k` goes to `0`.
 -/
-TheoremDoc DiffGoesToZero as "DiffGoesToZero" in "Series"
+TheoremDoc DiffGoesToZero as "DiffGoesToZero" in "∑aₙ"
 
 --ADD TO HOMEWORK
 theorem DiffGoesToZero {a : ℕ → ℝ} (aLim : SeqLim a 0) : SeqLim (fun n ↦ ∑ k ∈ range (2 * n + 1), (-1)^k * a k - ∑ k ∈ range (2 * n), (-1)^k * a k) 0 := by sorry
@@ -121,7 +121,7 @@ NewTheorem AntitoneLimitBound CoherenceOfReals SeqEvenOdd MonotoneSeriesEven Ant
 /--
   If `a` decreases to `0`, then the alternating series `Series (fun n ↦ (-1)^n * a n)` converges.
 -/
-TheoremDoc AlternatingSeriesTest as "AlternatingSeriesTest" in "Series"
+TheoremDoc AlternatingSeriesTest as "AlternatingSeriesTest" in "∑aₙ"
 
 Statement AlternatingSeriesTest {a : ℕ → ℝ} (ha : Antitone a) (aLim : SeqLim a 0) : SeriesConv (fun n ↦ (-1)^n * a n) := by
 have apos : ∀ n, 0 ≤ a n := by apply AntitoneLimitBound ha aLim

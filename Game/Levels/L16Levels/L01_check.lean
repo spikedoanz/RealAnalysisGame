@@ -64,7 +64,7 @@ NewDefinition Series SeriesConv SeriesLim
 
 /-- If a series converges, then the terms go to zero
 -/
-TheoremDoc LimZero_of_SeriesConv as "LimZero_of_SeriesConv" in "Sequences"
+TheoremDoc LimZero_of_SeriesConv as "LimZero_of_SeriesConv" in "∑aₙ"
 
 
 Statement LimZero_of_SeriesConv (a : ℕ → ℝ) (ha : SeriesConv a) : SeqLim a 0 := by

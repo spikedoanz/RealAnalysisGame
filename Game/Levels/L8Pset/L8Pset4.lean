@@ -17,7 +17,7 @@ if `i < j`, then `σ (i) < σ (j)`. Prove that
 /--
 If a sequence `σ : ℕ → ℕ` is strictly increasing, then it grows at least linearly.
 -/
-TheoremDoc SubseqGe as "SubseqGe" in "Theorems"
+TheoremDoc SubseqGe as "SubseqGe" in "aₙ"
 
 
 /-- Prove the statement. -/

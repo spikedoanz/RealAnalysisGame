@@ -48,7 +48,7 @@ def AbsSeriesConv (a : ℕ → ℝ) : Prop := SeriesConv (fun n ↦ |a n|)
 /--
 If `n ≤ m`, then `Series a m - Series a n = ∑ k ∈ Ico n m, a k`.
 -/
-TheoremDoc DiffOfSeries as "DiffOfSeries" in "Theorems"
+TheoremDoc DiffOfSeries as "DiffOfSeries" in "∑aₙ"
 
 theorem DiffOfSeries (a : ℕ → ℝ) {n m : ℕ} (hmn : n ≤ m) :
   Series a m - Series a n = ∑ k ∈ Ico n m, a k := by
@@ -58,7 +58,7 @@ sorry
 /--
 If `n ≤ m`, then `|∑ k ∈ Ico n m, a k| ≤ ∑ k ∈ Ico n m, |a k|`.
 -/
-TheoremDoc Series_abs_add as "Series_abs_add" in "Theorems"
+TheoremDoc Series_abs_add as "Series_abs_add" in "∑aₙ"
 
 theorem Series_abs_add (a : ℕ → ℝ) {n m : ℕ} (hmn : n ≤ m) :
   |∑ k ∈ Ico n m, a k| ≤ ∑ k ∈ Ico n m, |a k| := by
@@ -69,7 +69,7 @@ NewTheorem DiffOfSeries Series_abs_add
 /--
   If `Series (fun n ↦ |a n|)` converges, then `Series a` converges.
 -/
-TheoremDoc Conv_of_AbsSeriesConv as "Conv_of_AbsSeriesConv" in "Series"
+TheoremDoc Conv_of_AbsSeriesConv as "Conv_of_AbsSeriesConv" in "∑aₙ"
 
 Statement Conv_of_AbsSeriesConv {a : ℕ → ℝ} (ha : AbsSeriesConv a) : SeriesConv a := by
 apply SeqConv_of_IsCauchy

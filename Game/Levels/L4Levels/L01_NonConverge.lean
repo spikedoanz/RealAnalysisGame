@@ -119,12 +119,12 @@ followed by a minus sign, `abs_neg` won't work!
 /--
 Usage: `have factName : |x + y| ≤ |x| + |y| := by apply abs_add`
 -/
-TheoremDoc abs_add as "abs_add" in "Theorems"
+TheoremDoc abs_add as "abs_add" in "|x|"
 
 /--
 Usage: `have factName : |-x| = |x| := by apply abs_neg`
 -/
-TheoremDoc abs_neg as "abs_neg" in "Theorems"
+TheoremDoc abs_neg as "abs_neg" in "|x|"
 
 NewTheorem abs_add abs_neg
 

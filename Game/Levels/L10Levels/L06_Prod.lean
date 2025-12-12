@@ -37,7 +37,7 @@ Good luck!
 /--
 If sequences `a b : ℕ → ℝ` converge with `a` going to `L ≠ 0` and `b` going to `M ≠ 0`, then `a n * b n` converges to `L * M`.
 -/
-TheoremDoc ProdLimNeNe as "ProdLimNeNe" in "Sequences"
+TheoremDoc ProdLimNeNe as "ProdLimNeNe" in "aₙ"
 
 /-- Prove this
 -/

@@ -44,7 +44,7 @@ Then for all `n ≥ N`, we have:
 ## Your Task
 
 Prove that `SeriesConv a` using:
-- The explicit formula from Level 1 (`LeibnizSeries'`)
+- The explicit formula from Level 1 (`LeibnizSeriesFinite`)
 - The Archimedean Property (`ArchProp`)
 - Careful inequality reasoning to show `1/(n+1) < ε`
 
@@ -53,10 +53,10 @@ Prove that `SeriesConv a` using:
 
 /-- The series `∑ k, 1 / ((k + 1) * (k + 2))` converges.
 -/
-TheoremDoc LeibnizSeries as "LeibnizSeries" in "Series"
+TheoremDoc LeibnizSeries as "LeibnizSeries" in "∑aₙ"
 
 Statement LeibnizSeries (a : ℕ → ℝ) (ha : ∀ n, a n = 1 / ((n + 1) * (n + 2))) : SeriesConv a := by
-have f : ∀ n, ∑ k ∈ range n, a k = 1 - 1 / (n + 1) := by apply LeibnizSeries' ha
+have f : ∀ n, ∑ k ∈ range n, a k = 1 - 1 / (n + 1) := by apply LeibnizSeriesFinite ha
 use 1
 intro ε hε
 choose N hN using ArchProp hε

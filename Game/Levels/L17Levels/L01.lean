@@ -39,9 +39,9 @@ Prove that for the sequence `a` defined by `a n = 1 / ((n + 1) * (n + 2))`, we h
 
 /-- The series `∑ k, 1 / ((k + 1) * (k + 2))` converges.
 -/
-TheoremDoc LeibnizSeries' as "LeibnizSeries'" in "Series"
+TheoremDoc LeibnizSeriesFinite as "LeibnizSeriesFinite" in "∑aₙ"
 
-Statement LeibnizSeries' {a : ℕ → ℝ} (ha : ∀ n, a n = 1 / ((n + 1) * (n + 2))) :
+Statement LeibnizSeriesFinite {a : ℕ → ℝ} (ha : ∀ n, a n = 1 / ((n + 1) * (n + 2))) :
 ∀ n, ∑ k ∈ range n, a k = 1 - 1 / (n + 1) := by
   intro n
   induction' n with m hm
@@ -59,7 +59,7 @@ Beautiful! You've found an explicit formula for the partial sums of the Leibniz 
 
 ## What You've Proven
 
-**Theorem (LeibnizSeries'):** For `a n = 1 / ((n + 1) * (n + 2))`, we have:
+**Theorem (LeibnizSeriesFinite):** For `a n = 1 / ((n + 1) * (n + 2))`, we have:
 `∑ k ∈ range n, a k = 1 - 1 / (n + 1)`
 
 ## The Power of Telescoping

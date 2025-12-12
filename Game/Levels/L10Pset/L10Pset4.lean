@@ -14,7 +14,7 @@ We proved `OrderLimLe`; now prove `OrderLimGt`. Notice that the assumption is a 
 /--
 If a sequence `a` converges to `L` and `K < a n` for all `n`, then `K ≤ L`.
 -/
-TheoremDoc OrderLimGt as "OrderLimGt" in "Sequences"
+TheoremDoc OrderLimGt as "OrderLimGt" in "aₙ"
 
 /-- Prove this
 -/

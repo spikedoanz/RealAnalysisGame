@@ -13,7 +13,7 @@ Prove that `2 * (1 + 2 + ... + N) = N * (N + 1)`.
 "
 
 /-- `1 + 2 + ... + N = N * (N + 1) / 2`. -/
-TheoremDoc SumFirstN as "SumFirstN" in "Theorems"
+TheoremDoc SumFirstN as "SumFirstN" in "∑aₙ"
 
 /-- Prove the statement. -/
 Statement SumFirstN (N : ℕ) :

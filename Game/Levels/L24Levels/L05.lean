@@ -83,7 +83,7 @@ theorem mem_lefts {α β : Type}
 /--
 A point `a : α` is in the `lefts` of a finite set `s : Finset (α ⊕ β)` if and only if the element `Sum.inl a` is in `s`.
 -/
-TheoremDoc mem_lefts as "mem_lefts" in "Theorems"
+TheoremDoc mem_lefts as "mem_lefts" in "x∈U"
 
 NewTheorem mem_lefts
 
@@ -92,76 +92,76 @@ namespace RealAnalysisGame
 /--
 Any closed subset of a compact set is compact.
 -/
-TheoremDoc RealAnalysisGame.IsCompact_of_ClosedSubset as "IsCompact_of_ClosedSubset" in "Topology"
+TheoremDoc RealAnalysisGame.IsCompact_of_ClosedSubset as "IsCompact_of_ClosedSubset" in "x∈U"
 
 Statement IsCompact_of_ClosedSubset {S T : Set ℝ} (hST : S ⊆ T) (hT : IsCompact T) (hS : IsClosed S) : IsCompact S := by
-intro ι xs rs rspos hcover
-change IsOpen Sᶜ at hS
-change ∀ x ∈ Sᶜ, ∃ r > 0, Ball x r ⊆ Sᶜ at hS
-choose δs δspos hδs using hS
-let Sbar : Set ℝ := Sᶜ
-let J : Type := Sbar
-let U : Type := ι ⊕ J
-let xs' : U → ℝ := fun i ↦
-  match i with
-  | Sum.inl j => xs j
-  | Sum.inr x => x
-let rs' : U → ℝ := fun i ↦
-  match i with
-  | Sum.inl j => rs j
-  | Sum.inr x => δs x.1 x.2
-let rs'pos : ∀ i : U, rs' i > 0 := by
-  intro i
+  intro ι xs rs rspos hcover
+  change IsOpen Sᶜ at hS
+  change ∀ x ∈ Sᶜ, ∃ r > 0, Ball x r ⊆ Sᶜ at hS
+  choose δs δspos hδs using hS
+  let Sbar : Set ℝ := Sᶜ
+  let J : Type := Sbar
+  let U : Type := ι ⊕ J
+  let xs' : U → ℝ := fun i ↦
+    match i with
+    | Sum.inl j => xs j
+    | Sum.inr x => x
+  let rs' : U → ℝ := fun i ↦
+    match i with
+    | Sum.inl j => rs j
+    | Sum.inr x => δs x.1 x.2
+  let rs'pos : ∀ i : U, rs' i > 0 := by
+    intro i
+    cases i with
+    | inl j => exact rspos j
+    | inr x => exact δspos x.1 x.2
+  have hcover' : T ⊆ ⋃ (i : U), Ball (xs' i) (rs' i) := by
+    intro t ht
+    by_cases htS : t ∈ S
+    · specialize hcover htS
+      rewrite [mem_Union] at hcover
+      choose j hj using hcover
+      rewrite [mem_Union]
+      use Sum.inl j, hj.1, hj.2
+    · change t ∈ Sbar at htS
+      rewrite [mem_Union]
+      have hball : t ∈ Ball (xs' (Sum.inr ⟨t, htS⟩)) (rs' (Sum.inr ⟨t, htS⟩)) := by
+        specialize rs'pos (Sum.inr ⟨t, htS⟩)
+        split_ands
+        change t - _ < t
+        linarith [rs'pos]
+        change t < t + _
+        linarith [rs'pos]
+      use Sum.inr ⟨t, htS⟩, hball.1, hball.2
+  specialize hT U xs' rs' rs'pos hcover'
+  choose V hV using hT
+  let V₁ : Finset ι := V.lefts
+  use V₁
+  intro s hs
+  rewrite [mem_Union]
+  have hsT : s ∈ T := by bound
+  specialize hV hsT
+  rewrite [mem_Union] at hV
+  choose i ball_i i_in_V s_in_Ball using hV
+  rewrite [mem_range] at i_in_V
+  choose hi hi' using i_in_V
+  rewrite [← hi'] at s_in_Ball
   cases i with
-  | inl j => exact rspos j
-  | inr x => exact δspos x.1 x.2
-have hcover' : T ⊆ ⋃ (i : U), Ball (xs' i) (rs' i) := by
-  intro t ht
-  by_cases htS : t ∈ S
-  · specialize hcover htS
-    rewrite [mem_Union] at hcover
-    choose j hj using hcover
-    rewrite [mem_Union]
-    use Sum.inl j, hj.1, hj.2
-  · change t ∈ Sbar at htS
-    rewrite [mem_Union]
-    have hball : t ∈ Ball (xs' (Sum.inr ⟨t, htS⟩)) (rs' (Sum.inr ⟨t, htS⟩)) := by
-      specialize rs'pos (Sum.inr ⟨t, htS⟩)
-      split_ands
-      change t - _ < t
-      linarith [rs'pos]
-      change t < t + _
-      linarith [rs'pos]
-    use Sum.inr ⟨t, htS⟩, hball.1, hball.2
-specialize hT U xs' rs' rs'pos hcover'
-choose V hV using hT
-let V₁ : Finset ι := V.lefts
-use V₁
-intro s hs
-rewrite [mem_Union]
-have hsT : s ∈ T := by bound
-specialize hV hsT
-rewrite [mem_Union] at hV
-choose i ball_i i_in_V s_in_Ball using hV
-rewrite [mem_range] at i_in_V
-choose hi hi' using i_in_V
-rewrite [← hi'] at s_in_Ball
-cases i with
-| inl j =>
-    have hj : j ∈ V₁ := by
-      rewrite [mem_lefts]
-      apply hi
-    use j
-    rewrite [mem_Union]
-    use hj, s_in_Ball.1, s_in_Ball.2
-| inr x =>
-    exfalso
-    have hxSbar : x.1 ∈ Sbar := x.2
-    have hxS : x.1 ∉ S := by
-      intro h
-      contradiction
-    specialize hδs x.1 hxSbar s_in_Ball hs
-    apply hδs
+  | inl j =>
+      have hj : j ∈ V₁ := by
+        rewrite [mem_lefts]
+        apply hi
+      use j
+      rewrite [mem_Union]
+      use hj, s_in_Ball.1, s_in_Ball.2
+  | inr x =>
+      exfalso
+      have hxSbar : x.1 ∈ Sbar := x.2
+      have hxS : x.1 ∉ S := by
+        intro h
+        contradiction
+      specialize hδs x.1 hxSbar s_in_Ball hs
+      apply hδs
 
 end RealAnalysisGame
 

@@ -12,7 +12,7 @@ Prove that if `f → L` as `x → c`, then `k · f → k · L`.
 /--
 If `f → L` as `x → c`, then `k · f → k · L`.
 -/
-TheoremDoc ConstTimesLimAt as "ConstTimesLimAt" in "Functions"
+TheoremDoc ConstTimesLimAt as "ConstTimesLimAt" in "f(x)"
 
 /-- Prove `ConstTimesLimAt`
 -/

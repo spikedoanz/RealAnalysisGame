@@ -18,7 +18,7 @@ pulls out the first term instead of the last.
 `∑ k ∈ range (m + 1), f k = f 0 + ∑ k ∈ range m, f (k+1)`. This pulls out the first
 term in the sum instead of `sum_range_succ`, which pulls out the last term.
 -/
-TheoremDoc Finset.sum_range_succ' as "sum_range_succ'" in "Theorems"
+TheoremDoc Finset.sum_range_succ' as "sum_range_succ'" in "∑aₙ"
 
 NewTheorem Finset.sum_range_succ'
 

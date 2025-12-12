@@ -20,7 +20,7 @@ then you can prove that `|X| = X` via:
 /--
 Usage: given hypothesis `h : 0 ≤ X`, you can prove: `have : |X| = X := by apply abs_of_nonneg h`
 -/
-TheoremDoc abs_of_nonneg as "abs_of_nonneg" in "Theorems"
+TheoremDoc abs_of_nonneg as "abs_of_nonneg" in "|x|"
 
 NewTheorem abs_of_nonneg
 

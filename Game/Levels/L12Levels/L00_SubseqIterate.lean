@@ -66,7 +66,7 @@ theorem succ_iterate (σ : ℕ → ℕ) (k : ℕ) (n : ℕ) :
 Eq.symm (Function.iterate_succ_apply' σ k n)
 
 /-- For a function `σ : ℕ → ℕ`, we have that: `σ (σ^[k]) = σ^[k+1]`. -/
-TheoremDoc succ_iterate as "succ_iterate" in "Theorems"
+TheoremDoc succ_iterate as "succ_iterate" in "aₙ"
 
 
 theorem subseq_of_succ (σ : ℕ → ℕ) (hσ : ∀ n, σ n < σ (n + 1)) : Subseq σ := by
@@ -79,7 +79,7 @@ theorem subseq_of_succ (σ : ℕ → ℕ) (hσ : ∀ n, σ n < σ (n + 1)) : Sub
 
 /-- For a function `σ : ℕ → ℕ`, if `σ n < σ (n+1)`, then
 for any `i < j`, `σ i < σ j` -- that is, `Subseq σ` holds. -/
-TheoremDoc subseq_of_succ as "subseq_of_succ" in "Theorems"
+TheoremDoc subseq_of_succ as "subseq_of_succ" in "aₙ"
 
 NewTheorem subseq_of_succ succ_iterate
 
@@ -88,7 +88,7 @@ NewTheorem subseq_of_succ succ_iterate
 If a sequence `σ : ℕ → ℕ` grows faster than the identity, `n < σ n`,
 then the orbit of any base point `n₀ : ℕ` under `σ` -- this means the sequence `n₀, σ n₀, σ^[2] n₀, ...` -- is a `Subseq`, that is, is strictly increasing.
 -/
-TheoremDoc Subseq_of_Iterate as "Subseq_of_Iterate" in "Theorems"
+TheoremDoc Subseq_of_Iterate as "Subseq_of_Iterate" in "aₙ"
 
 /-- Prove this
 -/

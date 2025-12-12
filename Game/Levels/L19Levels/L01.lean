@@ -57,17 +57,17 @@ apply this
 /--
 If `s ⊆ t`, and `0 ≤ f i`, for all `i ∈ t`, then `∑ i ∈ s, f i ≤ ∑ i ∈ t, f i`.
 -/
-TheoremDoc sum_le_sum_of_nonneg as "sum_le_sum_of_nonneg" in "Theorems"
+TheoremDoc sum_le_sum_of_nonneg as "sum_le_sum_of_nonneg" in "∑aₙ"
 
 /--
 If `x ∈ s`, and `0 ≤ f i`, for all `i ∈ s`, then `f x ≤ ∑ i ∈ s, f i`.
 -/
-TheoremDoc sum_le_mem_of_nonneg as "sum_le_mem_of_nonneg" in "Theorems"
+TheoremDoc sum_le_mem_of_nonneg as "sum_le_mem_of_nonneg" in "∑aₙ"
 
 /--
 For `a` and `b`, `x ∈ Ico a b ↔ a ≤ x ∧ x < b`.
 -/
-TheoremDoc Finset.mem_Ico as "mem_Ico" in "Theorems"
+TheoremDoc Finset.mem_Ico as "mem_Ico" in "x∈U"
 
 
 NewTheorem sum_le_sum_of_nonneg sum_le_mem_of_nonneg Finset.mem_Ico
@@ -76,7 +76,7 @@ NewTheorem sum_le_sum_of_nonneg sum_le_mem_of_nonneg Finset.mem_Ico
   If `Series a` converges absolutely, then for any `ε > 0`, there is an `N`, so that,
   for any finite set `S` whose elements are all at least `N`, `∑ k ∈ S, |a k| < ε`.
 -/
-TheoremDoc StrongCauchy_of_AbsSeriesConv as "StrongCauchy_of_AbsSeriesConv" in "Series"
+TheoremDoc StrongCauchy_of_AbsSeriesConv as "StrongCauchy_of_AbsSeriesConv" in "∑aₙ"
 
 Statement StrongCauchy_of_AbsSeriesConv
     {a : ℕ → ℝ} (ha : AbsSeriesConv a) {ε : ℝ} (hε : ε > 0) :

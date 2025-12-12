@@ -52,7 +52,7 @@ Ready to see the $\\varepsilon$-$\\delta$ method at its finest? Let's compose so
 /--
 The composition of continuous functions is continuous.
 -/
-TheoremDoc Cont_Comp as "Cont_Comp" in "Functions"
+TheoremDoc Cont_Comp as "Cont_Comp" in "f(x)"
 
 Statement Cont_Comp (f g : ℝ → ℝ) (hf : FunCont f) (hg : FunCont g) :
     FunCont (f ∘ g) := by

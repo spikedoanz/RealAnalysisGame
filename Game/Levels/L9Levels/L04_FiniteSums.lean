@@ -57,10 +57,10 @@ NewTactic contradiction
 
 /-- Given a function `f : ℕ → ℝ` and a natural number `N`, `sum_range_succ f n` says that:
 `∑ n ∈ range (N + 1), f n = ∑ n ∈ range N, f n + f N`. -/
-TheoremDoc Finset.sum_range_succ as "sum_range_succ" in "Theorems"
+TheoremDoc Finset.sum_range_succ as "sum_range_succ" in "∑aₙ"
 
 /-- If a function is nonnegative, then its sum is also. -/
-TheoremDoc Finset.sum_nonneg as "sum_nonneg" in "Theorems"
+TheoremDoc Finset.sum_nonneg as "sum_nonneg" in "∑aₙ"
 
 NewTheorem Finset.sum_range_succ Finset.sum_nonneg
 
@@ -77,7 +77,7 @@ NewDefinition range
 
 /-- If `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is a sequence, then any term `|a n|`
 for `n < N` is less than the sum of all the terms for `n = 0` to `N - 1`. -/
-TheoremDoc TermLeSum as "TermLeSum" in "Theorems"
+TheoremDoc TermLeSum as "TermLeSum" in "∑aₙ"
 
 /-- Prove this
 -/

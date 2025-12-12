@@ -82,7 +82,7 @@ The ability to manage how constants affect convergence is fundamental to all of 
 
 
 /-- For any real numbers `x` and `y`, we have `|x * y| = |x| * |y|`. -/
-TheoremDoc abs_mul as "abs_mul" in "Theorems"
+TheoremDoc abs_mul as "abs_mul" in "|x|"
 
 NewTheorem abs_mul
 

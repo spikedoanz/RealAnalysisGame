@@ -53,12 +53,12 @@ theorem abs_Lipschitz {x y : ℝ} : |(|x| - |y|)| ≤ |x - y| :=
 by apply abs_abs_sub_abs_le
 
 /-- The absolute value function is Lipschitz with constant 1. -/
-TheoremDoc abs_Lipschitz as "abs_Lipschitz" in "Theorems"
+TheoremDoc abs_Lipschitz as "abs_Lipschitz" in "|x|"
 
 NewTheorem abs_Lipschitz
 
 /-- If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its absolute value, `b n = |a n|` for all `n`, then `b` converges to `|L|`. -/
-TheoremDoc AbsLim as "AbsLim" in "Sequences"
+TheoremDoc AbsLim as "AbsLim" in "aₙ"
 
 /-- Prove this
 -/

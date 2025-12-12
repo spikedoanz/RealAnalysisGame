@@ -46,7 +46,7 @@ which would cause the reciprocals to blow up. This theorem provides exactly that
 
 /-- If `a : ℕ → ℝ` converges to `L` and `L ≠ 0`, then there is an `N` so that
 for all `n ≥ N`, `|a (n)| ≥ |L| / 2`. -/
-TheoremDoc EventuallyGeHalfLimPos as "EventuallyGeHalfLimPos" in "Sequences"
+TheoremDoc EventuallyGeHalfLimPos as "EventuallyGeHalfLimPos" in "aₙ"
 
 /-- Prove this
 -/

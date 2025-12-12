@@ -21,7 +21,7 @@ As you may imagine, the proof that `f(x) = x ^ 2` is integrable will involve the
 The sum of the squares of the first `n` natural numbers is given by the formula:
 $$\\sum_{i=0}^{n-1} (i+1)^2 = \frac{n(n+1)(2n+1)}{6}.$$
 -/
-TheoremDoc sum_of_squares as "sum_of_squares" in "Series"
+TheoremDoc sum_of_squares as "sum_of_squares" in "∑aₙ"
 
 /-- Prove this
 -/

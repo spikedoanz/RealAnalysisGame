@@ -33,7 +33,7 @@ sorry
 /--
 The sum over `m * n` terms can be expressed as a double sum over `m` and `n`.
 -/
-TheoremDoc sum_of_prod as "sum_of_prod" in "Series"
+TheoremDoc sum_of_prod as "sum_of_prod" in "∑aₙ"
 
 NewTheorem sum_of_prod
 
@@ -41,7 +41,7 @@ NewTheorem sum_of_prod
 If a function `f` is uniformly continuous on `[a,b]`, then the Riemann sum at `n * k` differs
 from that at `n` by at most `(b - a) * ε`, provided the partition is fine enough.
 -/
-TheoremDoc RiemannSumRefinement as "RiemannSumRefinement" in "Integration"
+TheoremDoc RiemannSumRefinement as "RiemannSumRefinement" in "∫f"
 
 Statement RiemannSumRefinement (f : ℝ → ℝ) {a b : ℝ} (hab : a < b) {n k : ℕ}
     (hn : n ≠ 0) (hk : k ≠ 0)

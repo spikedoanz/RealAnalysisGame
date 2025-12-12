@@ -14,7 +14,7 @@ Prove that if `f → L` as `x → c`, then there is an `M > 0` such that
 If `f → L` as `x → c`, then there is an `M > 0` such that
 `|f (x)| < M` near `c`.
 -/
-TheoremDoc Bdd_of_LimAt as "Bdd_of_LimAt" in "Functions"
+TheoremDoc Bdd_of_LimAt as "Bdd_of_LimAt" in "f(x)"
 
 /-- Prove `Bdd_of_LimAt`
 -/

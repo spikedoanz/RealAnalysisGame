@@ -148,7 +148,7 @@ NewTactic linarith field_simp exact_mod_cast
 
 /-- If `a n = 1 / n`, then `SeqLim a 0`; that is, the sequence
 `1 / n` converges to zero. -/
-TheoremDoc OneOverNLimZero as "OneOverNLimZero" in "Sequences"
+TheoremDoc OneOverNLimZero as "OneOverNLimZero" in "aₙ"
 
 
 /-- Prove that the sequence `a(n) = 1 / n` converges to 0.

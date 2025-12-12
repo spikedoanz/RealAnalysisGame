@@ -46,7 +46,7 @@ Prove that if `f` and `g` are continuous at `c`, then their sum is continuous at
 
 /-- The sum of continuous functions is continuous.
 -/
-TheoremDoc FunContAtAdd as "FunContAtAdd" in "Continuity"
+TheoremDoc FunContAtAdd as "FunContAtAdd" in "f(x)"
 
 Statement FunContAtAdd {f g : ℝ → ℝ} {c : ℝ}
     (hf : FunContAt f c) (hg : FunContAt g c) :

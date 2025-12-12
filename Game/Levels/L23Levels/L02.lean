@@ -41,7 +41,7 @@ NewDefinition UnifContOn
 /--
 If a function `f` is uniformly continuous on `[a,b]`, then the Riemann sums of `f` converge to a limit as `N → ∞`.
 -/
-TheoremDoc HasIntegral_of_UnifContOn as "HasIntegral_of_UnifContOn" in "Integration"
+TheoremDoc HasIntegral_of_UnifContOn as "HasIntegral_of_UnifContOn" in "∫f"
 
 Statement HasIntegral_of_UnifContOn (f : ℝ → ℝ) (a b : ℝ) (hab : a < b) (hf : UnifContOn f (Icc a b)) :
     IntegrableOn f a b := by

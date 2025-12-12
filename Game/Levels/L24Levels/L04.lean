@@ -45,7 +45,7 @@ namespace RealAnalysisGame
 /--
 Any closed interval `[a, b]` (which is closed and bounded) is compact.
 -/
-TheoremDoc RealAnalysisGame.IsCompact_of_ClosedInterval as "IsCompact_of_ClosedInterval" in "Topology"
+TheoremDoc RealAnalysisGame.IsCompact_of_ClosedInterval as "IsCompact_of_ClosedInterval" in "x∈U"
 
 Statement IsCompact_of_ClosedInterval {a b : ℝ} (hab : a < b) : IsCompact (Icc a b) := by
 intro ι xs rs rspos hcover

@@ -15,7 +15,7 @@ then it also converges.
 "
 /-- If `0 ≤ a n ≤ b n` and `Series b` converges, then so does `Series a`.
 -/
-TheoremDoc ComparisonTest as "ComparisonTest" in "Series"
+TheoremDoc ComparisonTest as "ComparisonTest" in "∑aₙ"
 
 Statement ComparisonTest {a b : ℕ → ℝ} (ha : ∀ n, 0 ≤ a n) (hab : ∀ n, a n ≤ b n)
   (hb : SeriesConv b) : SeriesConv a := by

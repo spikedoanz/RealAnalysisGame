@@ -144,7 +144,7 @@ For any sequence `a : ℕ → ℝ` and constant `L : ℝ`, and
 hypothesis `h : ∀ n, a n = L`, the theorem `ConstLim`
 proves that `SeqLim a L`, that is, the (constant) sequence `a` converges to `L`.
 -/
-TheoremDoc ConstLim as "ConstLim" in "Sequences"
+TheoremDoc ConstLim as "ConstLim" in "aₙ"
 
 
 /-- Prove that the constant sequence converges to its constant value.

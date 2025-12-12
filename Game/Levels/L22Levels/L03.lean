@@ -149,29 +149,29 @@ NewDefinition RiemannSum HasIntegral IntegrableOn
 /--
 Summation distributes: `∑ i ∈ s, (f i + g i) = ∑ i ∈ s, f i + ∑ i ∈ s, g i`
 -/
-TheoremDoc Finset.sum_add_distrib as "sum_add_distrib" in "Series"
+TheoremDoc Finset.sum_add_distrib as "sum_add_distrib" in "∑aₙ"
 
 /--
 Summation of a constant: `∑ i ∈ s, c = c * s.card`.
 -/
-TheoremDoc Finset.sum_const as "sum_const" in "Series"
+TheoremDoc Finset.sum_const as "sum_const" in "∑aₙ"
 
 /--
 Range cardinality: `card (range n) = n`.
 -/
-TheoremDoc Finset.card_range as "card_range" in "Series"
+TheoremDoc Finset.card_range as "card_range" in "∑aₙ"
 
 
 /--
 Summation division: `∑ i ∈ s, (f i / c) = (∑ i ∈ s, f i) / c`.
 -/
-TheoremDoc Finset.sum_div as "sum_div" in "Series"
+TheoremDoc Finset.sum_div as "sum_div" in "∑aₙ"
 
 
 /--
 Summation multiplication: `∑ i ∈ s, (f i * c) = (∑ i ∈ s, f i) * c`.
 -/
-TheoremDoc Finset.sum_mul as "sum_mul" in "Series"
+TheoremDoc Finset.sum_mul as "sum_mul" in "∑aₙ"
 
 theorem sum_range_add_one (n : ℕ) : ∑ i ∈ range n, ((i : ℝ) + 1) = (n * (n + 1)) / 2 := by
   induction' n with n hn
@@ -185,7 +185,7 @@ theorem sum_range_add_one (n : ℕ) : ∑ i ∈ range n, ((i : ℝ) + 1) = (n * 
 /--
 The sum `∑ i ∈ range n, ((i : ℝ) + 1) = (n * (n + 1)) / 2`.
 -/
-TheoremDoc sum_range_add_one as "sum_range_add_one" in "Series"
+TheoremDoc sum_range_add_one as "sum_range_add_one" in "∑aₙ"
 
 NewTheorem Finset.sum_add_distrib Finset.sum_const Finset.card_range Finset.sum_div
   Finset.sum_mul sum_range_add_one

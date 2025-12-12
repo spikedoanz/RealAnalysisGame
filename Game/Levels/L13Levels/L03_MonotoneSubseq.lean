@@ -78,7 +78,7 @@ NewTheorem lt_of_not_ge
 /--
 If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) does not have unbounded peaks, then it has a `Monotone` subsequence.
 -/
-TheoremDoc MonotoneSubseq_of_BddPeaks as "MonotoneSubseq_of_BddPeaks" in "Sequences"
+TheoremDoc MonotoneSubseq_of_BddPeaks as "MonotoneSubseq_of_BddPeaks" in "aₙ"
 
 /-- Prove this
 -/

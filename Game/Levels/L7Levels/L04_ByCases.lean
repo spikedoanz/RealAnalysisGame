@@ -81,7 +81,7 @@ NewTactic by_cases
 
 /-- If `a : ℕ → ℝ` converges to `L` (with *no* assumption that `L ≠ 0`), then there is an `N` so that
 for all `n ≥ N`, `|a (n)| ≥ |L| / 2`. -/
-TheoremDoc EventuallyGeHalfLim as "EventuallyGeHalfLim" in "Sequences"
+TheoremDoc EventuallyGeHalfLim as "EventuallyGeHalfLim" in "aₙ"
 
 
 /-- Prove `EventuallyGeHalfLimPos`, but without the assumption that `L ≠ 0`.

@@ -22,7 +22,7 @@ The formal proof requires careful epsilon management. Given any tolerance `ε`, 
 
 /-- If `a c : ℕ → ℝ`, with `a` and `c` both converging to `L`,
 and `b` is another sequence, squeezed between `a` and `c`, then `b` also converges to `L`. -/
-TheoremDoc SqueezeThm as "SqueezeThm" in "Sequences"
+TheoremDoc SqueezeThm as "SqueezeThm" in "aₙ"
 
 
 /-- Prove this

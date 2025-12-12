@@ -30,7 +30,7 @@ The key insight is that `|x| < y` is equivalent to saying both `-y < x` AND `x <
 
 
 /-- This says that `|x| < y` if and only if `-y < x ∧ x < y`. -/
-TheoremDoc abs_lt as "abs_lt" in "Theorems"
+TheoremDoc abs_lt as "abs_lt" in "|x|"
 
 NewTheorem abs_lt
 

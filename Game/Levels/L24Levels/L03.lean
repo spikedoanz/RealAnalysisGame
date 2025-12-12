@@ -63,7 +63,7 @@ NewDefinition IsLUB IsUB
 /--
 Every nonempty set of real numbers that is bounded above has a least upper bound.
 -/
-TheoremDoc RealAnalysisGame.HasLUB_of_BddNonempty as "HasLUB_of_BddNonempty" in "Topology"
+TheoremDoc RealAnalysisGame.HasLUB_of_BddNonempty as "HasLUB_of_BddNonempty" in "x∈U"
 
 Statement HasLUB_of_BddNonempty {S : Set ℝ} (hS : S.Nonempty) {M : ℝ} (hM : IsUB S M) : ∃ L, IsLUB S L := by
 choose s₀ hs₀ using hS

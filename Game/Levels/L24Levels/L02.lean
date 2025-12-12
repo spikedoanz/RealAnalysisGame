@@ -55,7 +55,7 @@ NewDefinition IsClosed IsOpen
 /--
 A compact set is closed.
 -/
-TheoremDoc RealAnalysisGame.IsClosed_of_Compact as "IsClosed_of_Compact" in "Topology"
+TheoremDoc RealAnalysisGame.IsClosed_of_Compact as "IsClosed_of_Compact" in "x∈U"
 
 Statement IsClosed_of_Compact (S : Set ℝ) (hcomp : IsCompact S) : IsClosed S := by
 by_cases Snonempty : S.Nonempty

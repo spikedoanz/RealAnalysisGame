@@ -14,7 +14,7 @@ for every `n`, `a n ≤ L`.
 "
 /-- If `a : ℕ → ℝ` is `Monotone` and has limit `L`, then for all `n`, `a n ≤ L`.
 -/
-TheoremDoc MonotoneLimitBound as "MonotoneLimitBound" in "Sequences"
+TheoremDoc MonotoneLimitBound as "MonotoneLimitBound" in "aₙ"
 
 Statement MonotoneLimitBound {a : ℕ → ℝ} (amono : Monotone a) {L : ℝ} (ha : SeqLim a L) : ∀ n,
   a n ≤ L := by

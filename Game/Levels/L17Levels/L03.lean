@@ -49,7 +49,7 @@ This is a clean, elegant proof—enjoy the simplicity!
 
 /-- If `a n ≤ b n`, then `∑ k, a n ≤ ∑ k, b n`.
 -/
-TheoremDoc SeriesOrderThm as "SeriesOrderThm" in "Series"
+TheoremDoc SeriesOrderThm as "SeriesOrderThm" in "∑aₙ"
 
 
 Statement SeriesOrderThm {a b : ℕ → ℝ} (hab : ∀ n, a n ≤ b n) : ∀ n, Series a n ≤ Series b n := by

@@ -69,7 +69,7 @@ theorem Monotone_of_succ {X : Type*} [Preorder X] (a : ℕ → X) (ha : ∀ n, a
 exact monotone_nat_of_le_succ ha
 
 /-- If `a n ≤ a (n+1)` holds for all `n`, then `a` is `Monotone`. -/
-TheoremDoc Monotone_of_succ as "Monotone_of_succ" in "Sequences"
+TheoremDoc Monotone_of_succ as "Monotone_of_succ" in "aₙ"
 
 theorem IterateGap {X : Type*} [NormedField X] [LinearOrder X] [IsStrictOrderedRing X] (a : ℕ → X) (ha : Monotone a) (ε : X)
   (εpos : ε > 0)
@@ -92,7 +92,7 @@ linarith [f1, hk, hgap]
 /--
 If a sequence `a : ℕ → X` (where `X` could be `ℚ` or `ℝ`) is `Monotone` and grows along some subsequences by `ε`, then it eventually grows by `k * ε` for any `k`.
 -/
-TheoremDoc IterateGap as "IterateGap" in "Sequences"
+TheoremDoc IterateGap as "IterateGap" in "aₙ"
 
 NewTheorem Monotone_of_succ IterateGap
 
@@ -104,7 +104,7 @@ NewTactic push_neg
 /--
 If a sequence `a : ℕ → X` (where `X` can be `ℚ` or `ℝ`) is monotone and bounded, then it is Cauchy.
 -/
-TheoremDoc IsCauchy_of_MonotoneBdd as "IsCauchy_of_MonotoneBdd" in "Sequences"
+TheoremDoc IsCauchy_of_MonotoneBdd as "IsCauchy_of_MonotoneBdd" in "aₙ"
 
 /-- Prove this
 -/

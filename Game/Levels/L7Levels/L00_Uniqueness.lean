@@ -55,12 +55,12 @@ theorem abs_pos_of_nonzero {x : ℝ} (h : x ≠ 0) : 0 < |x| :=
 abs_pos.mpr h
 
 /-- If `x ≠ 0`, then `0 < |x|`. -/
-TheoremDoc abs_pos_of_nonzero as "abs_pos_of_nonzero" in "Theorems"
+TheoremDoc abs_pos_of_nonzero as "abs_pos_of_nonzero" in "|x|"
 
 NewTheorem abs_pos_of_nonzero
 
 /-- If `a : ℕ → ℝ` converges to `L` and `M`, then `L = M`. -/
-TheoremDoc LimUnique as "LimUnique" in "Sequences"
+TheoremDoc LimUnique as "LimUnique" in "aₙ"
 
 /-- Prove that limits are unique.
 -/

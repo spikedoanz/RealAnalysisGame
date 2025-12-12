@@ -66,7 +66,7 @@ NewDefinition Rearrangement Surjective Injective
   If `σ` is a `Rearrangement`, then for any `M`, there is an `N`, so that,
   for all `n ≥ N`, the `range M` is contained in `image σ (range n)`.
 -/
-TheoremDoc EventuallyCovers_of_Rearrangement as "EventuallyCovers_of_Rearrangement" in "Theorems"
+TheoremDoc EventuallyCovers_of_Rearrangement as "EventuallyCovers_of_Rearrangement" in "∑aₙ"
 
 Statement EventuallyCovers_of_Rearrangement
     {σ : ℕ → ℕ} (hσ : Rearrangement σ) (M : ℕ) :

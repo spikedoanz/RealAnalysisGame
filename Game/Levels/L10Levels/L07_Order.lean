@@ -53,7 +53,7 @@ def SeqBddBy (a : ℕ → ℝ) (M : ℝ) : Prop :=
 /--
 If a sequence `a` converges to `L` and `a n ≤ K` for all `n`, then `L ≤ K`.
 -/
-TheoremDoc OrderLimLe as "OrderLimLe" in "Sequences"
+TheoremDoc OrderLimLe as "OrderLimLe" in "aₙ"
 
 /-- Prove this
 -/

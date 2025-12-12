@@ -40,7 +40,7 @@ Let's prove it!
 /--
 If sequences `a` and `b` are Cauchy, then so is their sum.
 -/
-TheoremDoc IsCauchy_of_Sum as "IsCauchy_of_Sum" in "Sequences"
+TheoremDoc IsCauchy_of_Sum as "IsCauchy_of_Sum" in "aₙ"
 
 /-- Prove this
 -/

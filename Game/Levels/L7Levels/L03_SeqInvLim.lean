@@ -43,19 +43,19 @@ involving fractions. You have all the tools you need—now it's time to put them
 "
 
 /-- For any real numbers `x` and `y`, we have `|x / y| = |x| / |y|`. -/
-TheoremDoc abs_div as "abs_div" in "Theorems"
+TheoremDoc abs_div as "abs_div" in "|x|"
 
 
 theorem nonzero_of_abs_pos {x : ℝ} (h : 0 < |x|) : x ≠ 0 :=
 abs_pos.mp h
 
 /-- If `0 < |x|`, then `x ≠ 0`. -/
-TheoremDoc nonzero_of_abs_pos as "nonzero_of_abs_pos" in "Theorems"
+TheoremDoc nonzero_of_abs_pos as "nonzero_of_abs_pos" in "|x|"
 
 NewTheorem nonzero_of_abs_pos abs_div
 
 /-- If `a : ℕ → ℝ` converges to `L`, and `b : ℕ → ℝ` is its inverse, `b n = 1 / a n` for all `n`, then `b` converges to `1 / L`, provided `L ≠ 0`. -/
-TheoremDoc InvLim as "InvLim" in "Sequences"
+TheoremDoc InvLim as "InvLim" in "aₙ"
 
 /-- Prove this
 -/

@@ -32,7 +32,7 @@ then it's always strictly increasing, `i < j → σ i < σ j`; that is,
 If a sequence `σ : ℕ → ℕ` grows faster than the identity, `n < σ n`,
 then the orbit of any base point `n₀ : ℕ` under `σ` -- this means the sequence `n₀, σ n₀, σ^[2] n₀, ...` -- is a `Subseq`, that is, is strictly increasing.
 -/
-TheoremDoc Subseq_of_Iterate as "Subseq_of_Iterate" in "Sequences"
+TheoremDoc Subseq_of_Iterate as "Subseq_of_Iterate" in "aₙ"
 
 /-- Prove this
 -/
