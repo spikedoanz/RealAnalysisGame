@@ -25,35 +25,55 @@ TheoremDoc abs_of_nonneg as "abs_of_nonneg" in "|x|"
 NewTheorem abs_of_nonneg
 
 /-- Determine the limit `L` of the sequence `a (n) = (3n + 8) / (2n + 5)`, and prove that `a` indeed converges to `L`. -/
-Statement (a : ℕ → ℝ) (ha : ∀ n, a n = (3 * n + 8) / (2 * n + 5)) :
+example (a : ℕ → ℝ) (ha : ∀ n, a n = (3 * n + 8) / (2 * n + 5)) :
     ∃ L, SeqLim a L := by
-use 3 / 2
-intro ε hε
-choose N hN using ArchProp hε
-have OneOverε : 0 < 1 / ε := by bound
-have Npos : (0 : ℝ) < N := by linarith [OneOverε, hN]
-field_simp at hN
-have Npos' : 0 < N := by exact_mod_cast Npos
-have Nge1' : 1 ≤ N := by apply Npos'
-have Nge1 : (1 : ℝ) ≤ N := by exact_mod_cast Nge1'
-use N
-intro n hn
-specialize ha n
-rewrite [ha]
-have f1 : ((3 : ℝ) * n + 8) / (2 * n + 5) - 3 / 2 =
-  1 / (2 * (2 * n + 5))
-  := by field_simp; ring_nf
-rewrite [f1]
-have f2 : (0 : ℝ) ≤ (2 * (2 * n + 5)) := by bound
-have f3 : (0 : ℝ) ≤ 1 / (2 * (2 * n + 5)) := by bound
-have f4 : |(1 : ℝ) / (2 * (2 * n + 5))| = 1 / (2 * (2 * n + 5)) := by apply abs_of_nonneg f3
-rewrite [f4]
-field_simp
-have f5 : (N : ℝ) ≤ n := by exact_mod_cast hn
-have f6 : (2 : ℝ) * (2 * N + 5) * ε ≤ 2 * (2 * n + 5) * ε := by bound
-have f6' : (N : ℝ) ≤ 2 * (2 * N + 5) := by bound
-have f6'' : N * ε ≤ 2 * (2 * N + 5) * ε := by bound
-have f7 : 1 < 2 * (2 * N + 5) * ε := by linarith [f6'', hN]
-linarith [f7, f6]
+    use 3/2
+    intro ε hε
+    have hArch : ∃ N : ℕ, 1 / ε < ↑N := by
+        apply ArchProp at hε
+        exact hε
+    choose N hN using hArch
+    use N
+    intro n hn
+    specialize ha n
+    have hnℝ : (↑n:ℝ) ≥ (↑N:ℝ) := by exact_mod_cast hn
+    have f1 : 0 < 1 / ε := by bound
+    have N_neq_zero : (↑N:ℝ) > 0 := by
+        linarith [f1, hN]
+    have n_neq_zero : (↑n:ℝ) > 0 := by linarith [N_neq_zero, hnℝ]
+    have n_pos_nat : n > 0 := by
+        by_contra h
+        push_neg at h
+        interval_cases n
+        simp at n_neq_zero
+    rewrite [ha]
+    field_simp at hN
+    ring_nf
+    field_simp
+    simp
+    ring_nf
+    have : (10 + (↑n:ℝ) * 4)⁻¹ > 0 := by
+      field_simp
+      simp
+    norm_num
+    have : 10 + (↑n:ℝ) * 4 >= 0 := by
+      field_simp
+      linarith [n_neq_zero]
+    rw [abs_of_nonneg this]
+    have f2: 1 / (10 + (↑n:ℝ) * 4) < 1 / (↑n) := by
+      field_simp
+      linarith
+    have f3 : (1 / (↑n:ℝ)) <= (1 / (↑N:ℝ)) := by
+        field_simp
+        exact hnℝ
+    have f4 : (1 / (↑N:ℝ)) < ε := by
+        field_simp
+        linarith [hN]
+    have : (10 + (↑n:ℝ) * 4)⁻¹ = 1 / (10 + ↑n * 4) := by
+      field_simp
+    rw [this]
+
+
+
 
 Conclusion "Done."
