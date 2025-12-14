@@ -89,41 +89,27 @@ NewTheorem abs_mul
 
 /-- Prove that constant multiples of convergent sequences converge to the constant multiple of the limit.
 This is the Machinist's response to scaling demands: 'If you want double the output with the same tolerance, I need half the tolerance on the original process!' -/
-Statement (a b : ℕ → ℝ) (L : ℝ)
+example (a b : ℕ → ℝ) (L : ℝ)
     (h : SeqLim a L) (b_scaled : ∀ n, b n = 2 * a n) :
     SeqLim b (2 * L) := by
-  Hint (hidden := true) "Start by unfolding the definition: `change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |b n - 2 * L| < ε`"
-  change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |b n - 2 * L| < ε
-  intro ε hε
-  Hint (hidden := true) "Also try unfolding the definition in `h`: `change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h`"
-  change ∀ ε₁ > 0, ∃ N₁ : ℕ, ∀ n ≥ N₁, |a n - L| < ε₁ at h
-  Hint (hidden := true) "Apply the convergence of `a` with tolerance `ε / 2`. Try: `specialize h (ε / 2)`"
-  specialize h (ε / 2)
-  Hint (hidden := true) (strict := true) "Now we'll need to show that `0 < ε / 2`. Try: `have eps_half_pos : 0 < ε / 2 := by linarith [hε]`"
-  have eps_half_pos : 0 < ε / 2 := by bound --linarith [hε]
-  specialize h eps_half_pos
-  choose N hN using h
-  use N
-  intro n hn
-  specialize b_scaled n
-  rewrite [b_scaled]
-  clear b b_scaled eps_half_pos
-  Hint (strict := true) (hidden := true) "You can't use `abs_mul` just yet, because you don't have a product of things inside the absolute values! So first factor out the 2: `have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf`"
-  have factor : 2 * a n - 2 * L = 2 * (a n - L) := by ring_nf
-  rewrite [factor]
-  clear factor
-  Hint (hidden := true) (strict := true) "Apply the absolute value of products: `have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul`"
-  have abs_factor : |2 * (a n - L)| = |2| * |a n - L| := by apply abs_mul
-  rewrite [abs_factor]
-  clear abs_factor
-  specialize hN n hn
-  clear hn
-  Hint (hidden := true) (strict := true) "The `linarith` tactic won't work
-  yet, because it'll get stuck on that `|2|`; do you remember what to do
-  to normalize the numerical value to just `2`?"
-  norm_num
-  Hint (hidden := true) (strict := true) "And finally, this is where the powerful `linarith` tactic can take over. Remember to feed it (in brackets) the hypothesis (or hypotheses, separated by commas) which you want to manipulate to turn into the Goal."
-  bound --linarith [hN]
+    intro ε hε
+    change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - L| < ε at h
+    specialize h (ε/2)
+    have h0 : (ε/2) > 0 := by
+      field_simp
+      linarith [hε]
+    have h1 := h (h0)
+    choose N hN using h1
+    use N
+    intro n hn
+    specialize b_scaled n
+    rw [b_scaled]
+    field_simp
+    specialize hN n
+    have h3 := hN hn
+    rw [abs_mul]
+    simp
+    linarith [h3]
 
 Conclusion "
 # 🎉 Brilliant Work! 🎉
