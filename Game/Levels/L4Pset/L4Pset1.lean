@@ -39,18 +39,18 @@ example
 
   -- Use M = N + 2 to ensure M ≥ 2
   let M := N + 2
-  have hMN : N ≤ M := by omega
-  have hM2 : M ≥ 2 := by omega
+  have hMN : N ≤ M := by simp [M]
+  have hM2 : M ≥ 2 := by simp [M]
 
   have h2m    := ha2n   M
   have h2mp1  := ha2np1 M
 
   have := hN (2*M)
-  have hleft_ineq : N <= 2*M := by omega
+  have hleft_ineq : N <= 2*M := by simp[M] ; linarith
   apply this at hleft_ineq
 
   have := hN (2*M+1)
-  have hright_ineq : N <= 2*M+1 := by omega
+  have hright_ineq : N <= 2*M+1 := by simp[M] ; linarith
   apply this at hright_ineq
 
   have flipped : |a (2 * M + 1) - L| = |-a (2 * M + 1) + L| := by
