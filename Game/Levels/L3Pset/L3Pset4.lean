@@ -72,8 +72,6 @@ example (a : ℕ → ℝ) (ha : ∀ n, a n = (3 * n + 8) / (2 * n + 5)) :
     have : (10 + (↑n:ℝ) * 4)⁻¹ = 1 / (10 + ↑n * 4) := by
       field_simp
     rw [this]
-
-
-
+    linarith [f2, f3, f4]
 
 Conclusion "Done."
