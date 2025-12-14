@@ -46,37 +46,39 @@ TheoremDoc SumLim as "SumLim" in "aₙ"
 
 /-- Prove that the sum of two convergent sequences converges to the sum of their limits.
 This is the mathematician's version of 'if two factories each meet their quality standards, their combined output will too!' -/
-Statement SumLim (a b c : ℕ → ℝ) (L M : ℝ)
+theorem SumLim (a b c : ℕ → ℝ) (L M : ℝ)
     (ha : SeqLim a L) (hb : SeqLim b M) (hc : ∀ n, c n = a n + b n) :
     SeqLim c (L + M) := by
-  change ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |c n - (L + M)| < ε
-  intro ε hε
-  change ∀ ε₁ > 0, ∃ Na : ℕ, ∀ n ≥ Na, |a n - L| < ε₁ at ha
-  change ∀ ε₂ > 0, ∃ Nb : ℕ, ∀ n ≥ Nb, |b n - M| < ε₂ at hb
-  specialize ha (ε / 2)
-  specialize hb (ε / 2)
-  have eps_on_2_pos : 0 < ε / 2 := by linarith [hε]
-  specialize ha eps_on_2_pos
-  specialize hb eps_on_2_pos
-  choose Na hNa using ha
-  choose Nb hNb using hb
-  use Na + Nb
-  intro n hn
-  specialize hc n
-  rewrite [hc]
-  have thing : a n + b n - (L + M) =
-    (a n - L) + (b n - M) := by ring_nf
-  rewrite [thing]
-  specialize hNa n
-  specialize hNb n
-  have ineq_a : Na ≤ n := by bound -- linarith [hn]
-  have ineq_b : Nb ≤ n := by bound -- linarith [hn]
-  specialize hNa ineq_a
-  specialize hNb ineq_b
-  have ineq : |a n - L + (b n - M)| ≤
-    |a n - L| + |(b n - M)| := by apply abs_add
-  bound --linarith [hNa, hNb, ineq]
-
+    change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - L| < ε at ha
+    change ∀ ε > 0, ∃ N, ∀ n ≥ N, |b n - M| < ε at hb
+    change ∀ ε > 0, ∃ N, ∀ n ≥ N, |c n - (L+M)| < ε
+    intro ε hε
+    specialize ha (ε/2)
+    specialize hb (ε/2)
+    have f0 : (ε/2) > 0 := by linarith [hε]
+    have ha := ha f0
+    have hb := hb f0
+    choose N1 hNa using ha
+    choose N2 hNb using hb
+    use (N1+N2)
+    intro n hn
+    specialize hNa n
+    specialize hNb n
+    have f1 : n >= N1 := by bound
+    have f2 : n >= N2 := by bound
+    apply hNa at f1
+    apply hNb at f2
+    specialize hc n
+    rw [hc]
+    ring_nf
+    have f3 : |(a n - L) + (b n - M)| ≤ |a n - L| + |b n - M|
+      := abs_add _ _
+    have f4 : |a n - L + (b n - M)| = |a n + b n + (-L - M)|
+      := by ring_nf
+    have f5 : |a n - L| + |b n - M| < ε := by
+      linarith [f1, f2]
+    rw [f4] at f3
+    linarith [f3, f5]
 
 Conclusion "
 # 🎉 Outstanding! 🎉

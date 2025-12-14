@@ -29,11 +29,11 @@ NewTactic split_ands
 
 /-- Prove this
 -/
-Statement (x y : ℝ) (hx : x = 2) (hy : y = 3) :
+example (x y : ℝ) (hx : x = 2) (hy : y = 3) :
     x = 2 ∧ y = 3 := by
-split_ands
-apply hx
-apply hy
+    split_ands
+    exact hx
+    exact hy
 
 Conclusion "🎯 Tactical Mastery Achieved! 🎯
 

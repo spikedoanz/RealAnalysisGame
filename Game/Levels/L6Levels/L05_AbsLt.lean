@@ -11,10 +11,10 @@ Now that you've mastered the complete And/Or toolkit, it's time to apply these s
 
 You now have the full And/Or matrix \"Cheat Sheet\":
 
-|           | ∧        | ∨      |
-|-----------|----------|--------|
-| **Goal**  | `split_ands`    | `left`/`right`  |
-| **Hypothesis** | `h.1`, `h.2` | `cases'` |
+|                 | ∧             | ∨               |
+|-----------------|---------------|-----------------|
+| **Goal**        | `split_ands`  | `left`/`right`  |
+| **Hypothesis**  | `h.1`, `h.2`  | `cases'`        |
 
 Remember our definition of sequence convergence: `SeqLim a L` means that for any `ε > 0`, there exists an `N` such that for all `n ≥ N`, we have `|a n - L| < ε`. The absolute value here captures the idea that the sequence terms can approach the limit from either direction—they might be slightly above L or slightly below L, but either way, they're getting close.
 
@@ -34,19 +34,25 @@ TheoremDoc abs_lt as "abs_lt" in "|x|"
 
 NewTheorem abs_lt
 
+#check abs_lt
 
 /-- Prove this
 -/
-Statement (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) :
+example (a : ℕ → ℝ) (L : ℝ) (ha : SeqLim a L) :
   ∃ N, ∀ n ≥ N, a n ≥ L - 1 := by
-specialize ha 1 (by bound)
-choose N hN using ha
-use N
-intro n hn
-specialize hN n hn
-rewrite [abs_lt] at hN
-have : -1 < a n - L := by apply hN.1
-bound
+  change ∀ ε > 0, ∃ N, ∀ n ≥ N, |a n - L| < ε at ha
+  specialize ha 1
+  have f1 : (1:ℝ) > 0 := by simp
+  apply ha at f1
+  choose N hN using f1
+  use N
+  intro n hn
+  specialize hN n
+  have f2 := hN hn
+  rw [abs_lt] at f2
+  have f3 := f2.1
+  field_simp at f3
+  linarith [f3]
 
 Conclusion "
 # 📐 Absolute Value Mastery Achieved! 📐

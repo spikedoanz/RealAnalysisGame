@@ -27,29 +27,48 @@ TheoremDoc SqueezeThm as "SqueezeThm" in "aₙ"
 
 /-- Prove this
 -/
-Statement SqueezeThm (a b c : ℕ → ℝ) (L : ℝ) (aToL : SeqLim a L)
+theorem SqueezeThm (a b c : ℕ → ℝ) (L : ℝ) (aToL : SeqLim a L)
 (cToL : SeqLim c L) (aLeb : ∀ n, a n ≤ b n) (bLec : ∀ n, b n ≤ c n) :
   SeqLim b L := by
-intro ε hε
-specialize aToL ε hε
-specialize cToL ε hε
-choose Na hNa using aToL
-choose Nc hNc using cToL
-use Na + Nc
-intro n hn
-have hna : Na ≤ n := by bound
-have hnc : Nc ≤ n := by bound
-specialize hNa n hna
-specialize hNc n hnc
-rewrite [abs_lt] at hNa
-rewrite [abs_lt] at hNc
-rewrite [abs_lt]
-split_ands
-specialize aLeb n
-bound
-specialize bLec n
-bound
+  intro ε hε
+  specialize aToL ε
+  specialize cToL ε
+  have f1 := aToL hε
+  have f2 := cToL hε
+  choose N1 hN1 using f1
+  choose N2 hN2 using f2
 
+  use N1 + N2
+
+  intro n hn
+  specialize aLeb n
+  specialize bLec n
+
+  have f3 : a n - L <= b n - L := by simp ; apply aLeb
+  have f4 : b n - L <= c n - L := by simp ; apply bLec
+
+  have hnN1 : n >= N1 := by bound
+  have hnN2 : n >= N2 := by bound
+
+  -- upper
+  have f6 : c n - L <= |c n - L| := by bound
+  have f7 : b n - L <= |c n - L| := by linarith [f4, f6]
+  have f8 := hN2 n hnN2
+  have f9 : b n - L < ε := by linarith [f7, f8]
+
+  -- lower
+  have f10 : L - a n <= |L - a n| := by bound
+  have t1: |L - a n| = |-(a n - L)|:= by simp
+  have t2: |-(a n - L)| = |a n - L| := by rw [abs_neg]
+  rw [t1, t2] at f10
+  have f11 : L - b n <= L - a n := by linarith [f3]
+  have f12 := hN1 n hnN1
+  have f12 : L - b n < ε := by linarith [f10, f11, f12]
+
+  rw [abs_lt]
+  split_ands
+  linarith [f12]
+  linarith [f9]
 
 Conclusion "
 # 🏆 Squeeze Theorem Conquered! 🏆
