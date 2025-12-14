@@ -11,21 +11,34 @@ Prove that cannot have a limit less than 5.
 "
 
 /-- Prove the statement. -/
-Statement (a : ℕ → ℝ) (ha : ∀ N, ∃ n ≥ N, |a n| > 10)
+example (a : ℕ → ℝ) (ha : ∀ N, ∃ n ≥ N, |a n| > 10)
   : ¬ ∃ L, |L| < 5 ∧ SeqLim a L := by
-intro h
-choose L hL using h
-have f1 : |L| < 5 := by apply hL.1
-have ha' : SeqLim a L := by apply hL.2
-have f0 : (0 : ℝ) < 5 := by norm_num
-specialize ha' 5 f0
-choose N hN using ha'
-specialize ha N
-choose n hn using ha
-specialize hN n hn.1
-have ha : |a n| > 10 := by apply hn.2
-have f2 : |a n| = |(a n - L) + L| := by ring_nf
-have f3 : |(a n - L) + L| ≤ |(a n - L)| + |L| := by apply abs_add
-linarith [f1, ha, f2, f3, hN]
+  push_neg
+  intro L hL
+  intro h
+  specialize h 5
+  simp at h
+  choose N hN using h
+  specialize ha N
+  choose n hn using ha
+  specialize hN n
+  have f1 := hN hn.1
+  have f2 := hn.2
+  rw [abs_lt] at f1
+  have f3 := f1.1
+  have f4 := f1.2
+  rw [abs_lt] at hL
+  have f5 : a n > L - 5 := by linarith [f3]
+  have f6 : a n < L + 5 := by linarith [f4]
+  have f7 : a n < 10 := by linarith [f6, hL.2]
+  have f8 : -10 < a n := by linarith [f5, hL.1]
+  have f9 : -10 < a n ∧ a n < 10 := by
+    split_ands
+    exact f8
+    exact f7
+  rw [←abs_lt] at f9
+  have : 10 < 10 := by linarith [f2, f9]
+  absurd this
+  simp
 
 Conclusion "Done."

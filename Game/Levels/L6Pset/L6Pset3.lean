@@ -11,15 +11,20 @@ Prove that it is eventually positive.
 "
 
 /-- Prove the statement. -/
-Statement (a : ℕ → ℝ) (ha : SeqLim a 5)
+example (a : ℕ → ℝ) (ha : SeqLim a 5)
   : ∃ N, ∀ n ≥ N, 0 < a n := by
-have f0 : (0 : ℝ) < 5 := by norm_num
-specialize ha 5 f0
-choose N hN using ha
-use N
-intro n hn
-specialize hN n hn
-rewrite [abs_lt] at hN
-linarith [hN.1]
+  have f0 : (0 : ℝ) < 5 := by norm_num
+  specialize ha 5 f0
+  choose N hN using ha
+  use N
+  intro n hn
+  specialize hN n
+  apply hN at hn
+  rw [abs_lt] at hn
+  have answer := hn.1
+  simp at answer
+  exact answer
+
+
 
 Conclusion "Done."

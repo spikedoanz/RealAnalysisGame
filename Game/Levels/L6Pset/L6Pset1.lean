@@ -12,11 +12,11 @@ Your goal is to show that: `x = 2 ∧ y = 3 ∧ z = 4`.
 "
 
 /-- Prove the statement. -/
-Statement (x y z : ℝ) (hx : x = 2) (hy : y = 3) (hz : z = 4)
+example (x y z : ℝ) (hx : x = 2) (hy : y = 3) (hz : z = 4)
   : x = 2 ∧ y = 3 ∧ z = 4 := by
-split_ands
-apply hx
-apply hy
-apply hz
+  split_ands
+  exact hx
+  exact hy
+  exact hz
 
 Conclusion "Done."
